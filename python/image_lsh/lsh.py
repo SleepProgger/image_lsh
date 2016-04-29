@@ -13,13 +13,13 @@ if version_info > (3,0): # thats correct isn't it ?
 _bin_str_to_long = lambda x: long(x, base=2)
 
 
-def ahash(img):
+def _ahash(img):
     pix = img.flatten()
     avg_ = int( (pix.sum() / float(img.shape[0]*img.shape[1])) + 0.5)
     bits = str("".join(imap(lambda x: '1' if x < avg_ else '0', pix)))
     return bits
 
-def dhash_h(img):
+def _dhash_h(img):
     ret = ""
     _range = range(1, img.shape[1])
     for row in img:
@@ -27,7 +27,7 @@ def dhash_h(img):
             ret += "1" if row[x-1] < row[x] else "0"
     return ret
 
-def dhash_v(img):
+def _dhash_v(img):
     ret = ""
     _range_x = range(0, img.shape[1])
     for y in xrange(1, img.shape[0]):

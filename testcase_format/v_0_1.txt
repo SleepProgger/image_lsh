@@ -1,0 +1,47 @@
+# Definitions:
+# MD5:  Hexencoded upper case md5
+# LSH:  The LSH as binary string "1001..."
+  
+# OPTIONAL: The next key, value pair is optional.
+# *TIMES:   The previous element repeats 0-TIMES
+# +TIMES:   The previous element repeats 1-TIMES
+
+# NOT FIXED YET ?
+
+{
+    "version":      "0.1",
+    "name":         "STRING",
+    # OPTIONAL
+    "description":  "STRING",
+    'tests':        [
+        {
+            "url":          "STRING",
+            "image_size":   [WIDTH, HEIGHT],
+            # OPTIONAL
+            "name":         "STRING",
+            "image_hash":   "MD5",
+            # OPTIONAL
+            "scaled_hash":  [
+                [WIDTH, HEIGHT, MD5] *TIMES
+            ],
+            # OPTIONAL
+            "scaled_gray_hash":  [
+                [WIDTH, HEIGHT, MD5] *TIMES
+            ],
+            # OPTIONAL
+            "ahash":  [
+                [WIDTH, HEIGHT, LSH] *TIMES
+            ],
+            # OPTIONAL
+            "dhash_h":  [
+                [WIDTH, HEIGHT, LSH] *TIMES
+            ],
+            # OPTIONAL
+            "dhash_v":  [
+                [WIDTH, HEIGHT, LSH] *TIMES
+            ],
+        } +TIMES
+    ]
+}
+
+
